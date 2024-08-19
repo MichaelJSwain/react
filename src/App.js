@@ -16,9 +16,17 @@ function App() {
                             setRole(e.target.value);
                         }}
                     />
-                    <Employee name="Caleb" role="Intern" />
-                    <Employee name="Abby" role={role} />
-                    <Employee name="John" />
+                    <div className="flex flex-wrap justify-center">
+                      <Employee name="Caleb" role="Intern" img="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                      <Employee name="Abby" role={role} img="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                      <Employee name="John" img="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                      <Employee name="Caleb" role="Intern" img="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                      <Employee name="Abby" role={role} img="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                      <Employee name="John" img="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                      <Employee name="Caleb" role="Intern" img="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                      <Employee name="Abby" role={role} img="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                      <Employee name="John" img="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+                    </div>
                 </>
             ) : (
                 <p>You cannot see the employees</p>
