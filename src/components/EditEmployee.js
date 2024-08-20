@@ -4,9 +4,22 @@ import Modal from 'react-bootstrap/Modal';
 
 function EditEmployee({name, role}) {
   const [show, setShow] = useState(false);
+  const [formData, setFormData] = useState({
+    name,
+    role
+  });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleChange = (e) => {
+    console.log(e.target.name);
+    console.log(e.target.value);
+    setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+    })
+  };
 
   return (
     <>
@@ -30,7 +43,7 @@ function EditEmployee({name, role}) {
                     </label>
                 </div>
                 <div className="md:w-2/3">
-                    <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="name" type="text" value={name} />
+                    <input onChange={handleChange} className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="name" name="name" type="text" value={formData.name} />
                 </div>
             </div>
             <div className="md:flex md:items-center mb-6">
@@ -40,7 +53,7 @@ function EditEmployee({name, role}) {
                     </label>
                 </div>
                 <div className="md:w-2/3">
-                    <input className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="role" type="text" value={role} />
+                    <input onChange={handleChange} className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="role" name="role" type="text" value={formData.role} />
                 </div>
             </div>
   
