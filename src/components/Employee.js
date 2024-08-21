@@ -13,7 +13,7 @@ function Employee({employee, handleUpdateEmployee}) {
                 {employee.role ? employee.role : "unknown role"}
             </p>
             </div>
-
+        
             <EditEmployee employee={employee} handleUpdateEmployee={handleUpdateEmployee}/>
         </div>
         </div>
