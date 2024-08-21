@@ -8,31 +8,37 @@ function App() {
     const [employees, setEmployees] = useState(
         [
             {
+                id: uuidv4(),
                 name: "Caleb",
                 role: "Developer",
                 img: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             },
             {
+                id: uuidv4(),
                 name: "Abby",
                 role: "Engineer",
                 img: "https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             },
             {
+                id: uuidv4(),
                 name: "John",
                 role: "PO",
                 img: "https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             },
             {
+                id: uuidv4(),
                 name: "Caleb",
                 role: "Developer",
                 img: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             },
             {
+                id: uuidv4(),
                 name: "Abby",
                 role: "Engineer",
                 img: "https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             },
             {
+                id: uuidv4(),
                 name: "John",
                 role: "PO",
                 img: "https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -41,7 +47,14 @@ function App() {
     );
 
     const showEmployees = true;
-    
+
+    const handleUpdateEmployee = (employee) => {
+        const updatedEmployees = employees.map(emp => {
+            return emp.id === employee.id ? employee : emp;
+        });
+        setEmployees(updatedEmployees);
+    };
+
     return (
         <div className="App">
             {showEmployees ? (
@@ -57,10 +70,9 @@ function App() {
                         {employees.map(employee => {
                             return (
                                 <Employee 
-                                    name={employee.name} 
-                                    role={employee.role} 
-                                    img={employee.img} 
-                                    key={uuidv4()}
+                                    key={employee.id}
+                                    employee={employee}
+                                    handleUpdateEmployee={handleUpdateEmployee}
                                 />
                             )
                         })}

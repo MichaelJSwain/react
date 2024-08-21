@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function EditEmployee({name, role}) {
+function EditEmployee({employee, handleUpdateEmployee}) {
+    const {id, name, role, img} = employee;
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
     name,
@@ -13,13 +14,22 @@ function EditEmployee({name, role}) {
   const handleShow = () => setShow(true);
 
   const handleChange = (e) => {
-    console.log(e.target.name);
-    console.log(e.target.value);
+    console.log("handling change = ", e.target.value);
     setFormData({
         ...formData,
         [e.target.name]: e.target.value
     })
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleClose();
+    handleUpdateEmployee({
+        id,
+        ...formData,
+        img
+    });
+  }
 
   return (
     <>
@@ -35,7 +45,7 @@ function EditEmployee({name, role}) {
           <Modal.Title>Update Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <form id="updateForm" className="w-full max-w-sm">
+        <form onSubmit={handleSubmit} id="updateForm" className="w-full max-w-sm">
             <div className="md:flex md:items-center mb-6">
                 <div className="md:w-1/3">
                     <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="name">
