@@ -177,6 +177,8 @@ export default function Header({children}) {
                 )}
             </Disclosure>
             {children}
+            
+            <footer>Footer</footer>
         </div>
     );
 }
