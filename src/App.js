@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AddEmployee from './components/AddEmployee';
 import EditEmployee from './components/EditEmployee';
+import Header from './components/Header';
 
 function App() {
     const [role, setRole] = useState('dev');
@@ -69,6 +70,7 @@ function App() {
 
     return (
         <div className="App">
+            <Header />
             {showEmployees ? (
                 <>
                     <input
@@ -82,6 +84,7 @@ function App() {
                         {employees.map(employee => {
                             const editEmployee = <EditEmployee employee={employee} handleUpdateEmployee={handleUpdateEmployee}/>
                             return (
+
                                 <Employee 
                                     key={employee.id}
                                     employee={employee}
